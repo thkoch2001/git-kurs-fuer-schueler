@@ -31,17 +31,18 @@ sondern überall wo mehrere Menschen gemeinsam Dateien bearbeiten. Auch kann
 Git als eine Backuplösung verwendet werden so dass man immer zu einer älteren
 Version einer Datei zurückspringen kann.
 
-\emph{Suchen Sie im Internet nach weiteren Informationen über Git und Linux! Woher
-  kommt der Name Git? Was ist das Maskottchen von Linux?}
+\emph{Suchen Sie im Internet nach weiteren Informationen über Git und Linux!
+  Was bedeuted der Name Git? Was ist das Maskottchen von Linux? Wie verbreitet
+  ist Linux?}
 
 \section{Ein neues Repository}
 
 Git verwaltet Dateien in einem Verzeichnis und dessen
 Unterverzeichnissen. Legen Sie daher bitte ein neues Verzeichnis an (Befehl
-\lstinline{mkdir Verzeichnisname}), das danach zu einem sogenannten Repository gemacht
-werden soll. Öffnen Sie eine Konsole und wechseln Sie in das soeben angelegte
-Verzeichnis (Befehl \lstinline{cd Verzeichnisname}). Überprüfen Sie mit dem Befehl \lstinline{ls -a}
-\footnote{Mit der Option -a zeigt der Befehl ls auch versteckte Dateien und
+\lstinline{mkdir Verzeichnisname}), das danach zu einem sogenannten Repository
+gemacht werden soll. Öffnen Sie eine Konsole und wechseln Sie in das soeben
+angelegte Verzeichnis (Befehl \lstinline{cd Verzeichnisname}). Überprüfen Sie
+mit dem Befehl \lstinline{ls -a}\footnote{Mit der Option -a zeigt der Befehl ls auch versteckte Dateien und
   Verzeichnisse an}, dass das Verzeichnis leer ist.
 
 Ein neues Git repository im aktuellen Verzeichnis erzeugt der Befehl
@@ -87,7 +88,7 @@ Befehl den Stand und die Historie Ihres Repositories mit den Befehlen
 
 \section{Dateien bearbeiten}
 
-Kopieren Sie eine LaTeX Datei (Endung ``.tex'') in das Repository. Machen Sie
+Kopieren Sie eine \LaTeX-Datei (Endung ``.tex'') in das Repository. Machen Sie
 Änderungen an der Datei und comitten Sie neue Versionen der Datei mit
 \lstinline{git add} und \lstinline{git commit}. Der Befehl
 \lstinline{git log -p} (Option \lstinline{-p} für ``patch'')
@@ -112,12 +113,13 @@ sein. Sie sind eher zur Bearbeitung und zum Committen gedacht.
 
 \section{Kontakt mit anderen}
 
-Am einfachsten ist es, für die Zusammenarbeit einen von zahlreichen
-\footnote{\url{https://git.wiki.kernel.org/index.php/GitHosting}} Git Hosting
-Dienst zu benutzen\footnote{Wenn man einen eigenen Server betreibt kann man
-auch sehr einfach einen eigenen Git Hosting Dienst einrichten.}. Der
-bekannteste und am einfachsten zu benutzende Dienst ist \url{github.com}. Dort
-findet man auch eine umfangreiche Hilfe für die nächsten Schritte:
+Am einfachsten ist es, für die Zusammenarbeit einen von
+zahlreichen\footnote{\url{https://git.wiki.kernel.org/index.php/GitHosting}}
+Git Hosting Dienst zu benutzen\footnote{Wenn man einen eigenen Server betreibt
+  kann man auch sehr einfach einen eigenen Git Hosting Dienst
+  einrichten.}. Der bekannteste und am einfachsten zu benutzende Dienst ist
+\url{github.com}. Dort findet man auch eine umfangreiche Hilfe für die
+nächsten Schritte:
 
 \begin{enumerate}
   \item \url{https://help.github.com/articles/set-up-git}
@@ -128,5 +130,14 @@ findet man auch eine umfangreiche Hilfe für die nächsten Schritte:
 \emph{Welche Daten bekommt Github von seinen Nutzern? Wie einfach kann man eine
 Sicherheitskopie aller seiner wichtigen Daten von Github auf den eigenen
 Rechner bekommen? Vergleiche die Situation mit Facebook!}
+
+\section{Schluß}
+
+Der \latex Quelltext für diesen Text liegt ebenfalls auf Github, unter
+\url{https://github.com/thkoch2001/git-kurs-fuer-schueler}. Sie können den
+Text dort ``forken'', verbessern und mir einen ``pull request'' schicken.
+
+\emph{Achtung! Alle auf Github hochgeladen Daten sind für jeden öffentlichen
+  einsehbar! Auch Dateien, die mit \lstinline{git rm} gelöscht wurden!}
 
 \end{document}
