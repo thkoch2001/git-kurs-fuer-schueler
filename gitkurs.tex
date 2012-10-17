@@ -1,0 +1,132 @@
+\documentclass[11pt,a4paper,twoside]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[paper=a4paper,inner=20mm,outer=20mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{courier}
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\ttfamily
+}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE Git Kurs \par}
+\end{center}
+
+\section{Einleitung}
+
+In der Softwareentwicklung arbeiten meistens viele Entwickler zusammen an
+einem Projekt. Eines der größten freien Projekte ist der Kernel des freien
+Betriebssystems Linux mit über 1000 Entwicklern aus mehr als 30 Ländern. Alle
+diese Menschen müssen ihre Arbeit an den gleichen Dateien koordinieren und
+dabei noch die Übersicht über verschiedene Entwicklungsstände (Versionen)
+behalten. Zu diesem Zweck hat der Gründer des Linux Projekts, Linus Torvalds,
+das Versionskontrollsystem Git entwickelt.
+
+Git lässt sich aber nicht nur zur kooperativen Softwareentwicklung nutzen
+sondern überall wo mehrere Menschen gemeinsam Dateien bearbeiten. Auch kann
+Git als eine Backuplösung verwendet werden so dass man immer zu einer älteren
+Version einer Datei zurückspringen kann.
+
+\emph{Suchen Sie im Internet nach weiteren Informationen über Git und Linux! Woher
+  kommt der Name Git? Was ist das Maskottchen von Linux?}
+
+\section{Ein neues Repository}
+
+Git verwaltet Dateien in einem Verzeichnis und dessen
+Unterverzeichnissen. Legen Sie daher bitte ein neues Verzeichnis an (Befehl
+\lstinline{mkdir Verzeichnisname}), das danach zu einem sogenannten Repository gemacht
+werden soll. Öffnen Sie eine Konsole und wechseln Sie in das soeben angelegte
+Verzeichnis (Befehl \lstinline{cd Verzeichnisname}). Überprüfen Sie mit dem Befehl \lstinline{ls -a}
+\footnote{Mit der Option -a zeigt der Befehl ls auch versteckte Dateien und
+  Verzeichnisse an}, dass das Verzeichnis leer ist.
+
+Ein neues Git repository im aktuellen Verzeichnis erzeugt der Befehl
+\lstinline{git init}. Danach können Sie mit \lstinline{ls -a} sehen, dass ein
+neues Verzeichnis ``.git'' angelegt wurde, in dem Git seine Hilfsdateien
+ablegt. Der nächste Befehl, \lstinline{git status}, bestätigt, dass in dem
+Repository noch nichts passiert ist:
+
+\begin{lstlisting}
+# On branch master
+#
+# Initial commit
+#
+nothing to commit (create/copy files and use "git add" to track)
+\end{lstlisting}
+
+\section{Dateien hinzufügen}
+
+Die von Git verwalteten Versionen werden ``Commit'' und das Anlegen einer
+neuen Version ``Committen'' genannt. Legen Sie mit dem Befehl
+\lstinline{touch} gefolgt von einem Dateinamen eine leere Datei an. Mit dem
+Befehl \lstinline{git add} gefolgt vom Dateinamen wird diese Datei zum
+nächsten Commit hinzugefügt.
+
+Erst mit dem Befehl \lstinline{git commit} wird tatsächlich eine neue Version
+in Git angelegt. Jeder Commit muss auch eine kurze Erklärung erhalten, was in
+dieser Version verändert wurde. Daher öffnet der Aufruf von git commit einen
+Texteditor in dem man diese Erklärung eingeben kann, speichert und den Editor
+schließt. Alternativ kann man mit der Option \lstinline{-m} direkt eine
+Erklärung angeben, z.B.:
+
+\begin{lstlisting}
+git commit -m "3. Kapitel hinzugefuegt"
+\end{lstlisting}
+
+Git hat sich nun darüber beschwert, dass Sie sich noch nicht vorgestellt
+haben. Wir ignorieren diese Beschwerde im Moment.
+
+Committen Sie weitere Dateien in ihr Repository. Überprüfen Sie nach jedem
+Befehl den Stand und die Historie Ihres Repositories mit den Befehlen
+\lstinline{git status} und \lstinline{git log}\footnote{Die Anzeige eines
+  längeren Logs wird mit der Taste q verlassen.}!
+
+\section{Dateien bearbeiten}
+
+Kopieren Sie eine LaTeX Datei (Endung ``.tex'') in das Repository. Machen Sie
+Änderungen an der Datei und comitten Sie neue Versionen der Datei mit
+\lstinline{git add} und \lstinline{git commit}. Der Befehl
+\lstinline{git log -p} (Option \lstinline{-p} für ``patch'')
+zeigt die Änderungen der einzelnen
+Commits an.
+
+Mit dem Befehl \lstinline{git rm} können Sie Dateien für den nächsten Commit
+löschen. Löschen Sie die mit \lstinline{touch} angelegten leeren Dateien mit
+\lstinline{git rm} und committen Sie die neue Version!
+
+\section{Graphische Tools}
+
+Die Konsole ist für den geübten Nutzer das schnellste und mächtigste
+Werkzeug. Trotzdem bevorzugen Anfänger oft grafische Werkzeuge. Zum Betrachten
+und Bearbeiten eines Git Repositories gibt es unter Linux die Programme gitk,
+qgit, giggle, gitg. Probieren Sie aus, ob diese Programme bei Ihnen
+installiert sind! Wechseln Sie dazu in der Konsole (mit \lstinline{cd}) in ein
+Git Repository und geben Sie den Programmnamen als Kommando ein.
+
+Zwei weitere grafische Tools, git gui und git-cola sollten auch installiert
+sein. Sie sind eher zur Bearbeitung und zum Committen gedacht.
+
+\section{Kontakt mit anderen}
+
+Am einfachsten ist es, für die Zusammenarbeit einen von zahlreichen
+\footnote{\url{https://git.wiki.kernel.org/index.php/GitHosting}} Git Hosting
+Dienst zu benutzen\footnote{Wenn man einen eigenen Server betreibt kann man
+auch sehr einfach einen eigenen Git Hosting Dienst einrichten.}. Der
+bekannteste und am einfachsten zu benutzende Dienst ist \url{github.com}. Dort
+findet man auch eine umfangreiche Hilfe für die nächsten Schritte:
+
+\begin{enumerate}
+  \item \url{https://help.github.com/articles/set-up-git}
+  \item \url{https://help.github.com/articles/create-a-repo}
+  \item \url{https://help.github.com/articles/fork-a-repo}
+\end{enumerate}
+
+\emph{Welche Daten bekommt Github von seinen Nutzern? Wie einfach kann man eine
+Sicherheitskopie aller seiner wichtigen Daten von Github auf den eigenen
+Rechner bekommen? Vergleiche die Situation mit Facebook!}
+
+\end{document}
