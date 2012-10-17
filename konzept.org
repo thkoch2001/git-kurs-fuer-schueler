@@ -1,0 +1,93 @@
+
+* Lektionen
+** Einleitung
+
+In der Softwareentwicklung arbeiten meistens viele Entwickler zusammen an
+einem Projekt. Eines der größten freien Projekte ist der Kernel des freien
+Betriebssystems Linux mit über 1000 Entwicklern aus mehr als 30 Ländern. Alle
+diese Menschen müssen ihre Arbeit an den gleichen Dateien koordinieren und
+dabei noch die Übersicht über verschiedene Entwicklungsstände (Versionen)
+behalten. Zu diesem Zweck hat der Gründer des Linux Projekts, Linus Torvalds,
+das Versionskontrollsystem Git entwickelt.
+
+Git lässt sich aber nicht nur zur kooperativen Softwareentwicklung nutzen
+sondern überall wo mehrere Menschen gemeinsam Dateien bearbeiten. Auch kann
+Git als eine Backuplösung verwendet werden so dass man immer zu einer älteren
+Version einer Datei zurückspringen kann.
+
+*** Aufgaben
+
+- Suchen Sie im Internet nach weiteren Informationen über Git und Linux! Woher
+  kommt der Name Git? Was ist das Maskottchen von Linux?
+
+** Ein neues Repository
+
+Git verwaltet Dateien in einem Verzeichnis und dessen
+Unterverzeichnissen. Legen Sie daher bitte ein neues Verzeichnis an (Befehl
+mkdir Verzeichnisname), das danach zu einem sogenannten Repository gemacht
+werden soll. Öffnen Sie eine Konsole und wechseln Sie in das soeben angelegte
+Verzeichnis (Befehl cd Verzeichnisname). Überprüfen Sie mit dem Befehl ls
+-a\footnote{Mit der Option -a zeigt der Befehl ls auch versteckte Dateien und
+Verzeichnisse an}, dass das Verzeichnis leer ist.
+
+Ein neues Git repository im aktuellen Verzeichnis erzeugt der Befehl git
+init. Danach können Sie mit ls -a sehen, dass ein neues Verzeichnis .git
+angelegt wurde, in dem Git seine Hilfsdateien ablegt. Der nächste Befehl, git
+status, bestätigt, dass in dem Repository noch nichts passiert ist:
+
+# On branch master
+#
+# Initial commit
+#
+nothing to commit (create/copy files and use "git add" to track)
+
+** Dateien hinzufügen
+
+Die von Git verwalteten Versionen werden "Commit" und das Anlegen einer neuen
+Version "Committen" genannt. Legen Sie mit dem Befehl touch gefolgt von einem
+Dateinamen eine leere Datei an. Mit dem Befehl git add gefolgt vom Dateinamen
+wird diese Datei zum nächsten Commit hinzugefügt.
+
+Erst mit dem Befehl git commit wird tatsächlich eine neue Version in Git
+angelegt. Jeder Commit muss auch eine kurze Erklärung erhalten, was in dieser
+Version verändert wurde. Daher öffnet der Aufruf von git commit einen
+Texteditor in dem man diese Erklärung eingeben kann, speichert und den Editor
+schließt. Alternativ kann man mit der Option -m direkt eine Erklärung angeben,
+z.B.:
+
+git commit -m "3. Kapitel hinzugefügt"
+
+Git hat sich nun darüber beschwert, dass Sie sich noch nicht vorgestellt
+haben. Wir ignorieren diese Beschwerde im Moment.
+
+Committen Sie weitere Dateien in ihr Repository. Überprüfen Sie nach jedem
+Befehl den Stand und die Historie Ihres Repositories mit den Befehlen git
+status und git log\footnote{Die Anzeige eines längeren Logs wird mit der Taste
+q verlassen.}!
+
+** Dateien bearbeiten
+
+Kopieren Sie eine LaTeX Datei (Endung .tex) in das Repository. Machen Sie
+Änderungen an der Datei und comitten Sie neue Versionen der Datei mit git add
+und git commit. Der Befehl git log mit Option -p zeigt die Änderungen der
+einzelnen Commits an.
+
+Mit dem Befehl git rm können Sie Dateien für den nächsten Commit
+löschen. Löschen Sie die mit touch angelegten leeren Dateien mit git rm und
+committen Sie die neue Version!
+
+** Graphische Tools
+
+Die Konsole ist für den geübten Nutzer das schnellste und mächtigste
+Werkzeug. Trotzdem bevorzugen Anfänger oft grafische Werkzeuge. Zum Betrachten
+und Bearbeiten eines Git Repositories gibt es unter Linux die Programme gitk,
+qgit, giggle, gitg. Probieren Sie aus, ob diese Programme bei Ihnen
+installiert sind! Wechseln Sie dazu in der Konsole (mit cd) in ein Git
+Repository und geben Sie den Programmnamen als Kommando ein.
+
+Zwei weitere grafische Tools, git gui und git-cola sollten auch installiert
+sein. Sie sind eher zur Bearbeitung und zum Committen gedacht.
+
+
+
+
